@@ -9,4 +9,8 @@ describe('Test with the backend', () => {
     cy.log('This is the first test');
   })
 
+  it.only('Verify the request and response', () => {
+    
+  })
+
 })  
