@@ -29,7 +29,7 @@ describe('Test with the backend', () => {
 
   })
 
-  it.only('Verify popular tags are displayedd', () => {
+  it.only('Verify popular tags are displayed', () => {
 
   })
 
