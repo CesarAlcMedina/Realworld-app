@@ -1,6 +1,8 @@
 describe('Test with the backend', () => {
 
+  
   beforeEach(('loggin to application'), () => {
+    cy.intercept('GET', 'https://conduit-api.bondaracademy.com/api/tags', {fixture: 'tags.json'})
     cy.logginToApplication();
   })
 
@@ -30,7 +32,10 @@ describe('Test with the backend', () => {
   })
 
   it.only('Verify popular tags are displayed', () => {
-
+    cy.get('.tag-list')
+    .should('contain', 'cypress')
+    .and('contain', 'automation')
+    .and('contain', 'test')
   })
 
 })  
