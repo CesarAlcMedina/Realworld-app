@@ -86,10 +86,10 @@ describe('Test with the backend', () => {
   it.only('delete a new article in a global feed', () => {
     const date = Date.now()
     const userCredentials = {
-        "user": {
-            "email": "djtest@hotmail.com",
-            "password": "cesar0581998"
-        }
+      "user": {
+        "email": "djtest@hotmail.com",
+        "password": "cesar0581998"
+      }
     }
 
     const bodyRequest = {
@@ -101,31 +101,31 @@ describe('Test with the backend', () => {
       }
     }
 
-    // Obtener el token del localStorage después del login
-    cy.window().then((win) => {
-      const token = win.localStorage.getItem('jwt')
-      cy.wrap(token).as('token')
-    })
-
     cy.request('POST', 'https://conduit-api.bondaracademy.com/api/users/login', userCredentials)
-    .its('body').then(body => {
-      const token = body.user.token
+      .its('body').then(body => {
+        const token = body.user.token
 
-      cy.request({
-        url: 'https://conduit-api.bondaracademy.com/api/articles',
-        headers: {'Authorization': 'Token '+token},
-        method: 'POST',
-        body: bodyRequest
-      }).then(response => {
-        expect(response.status).to.equal(201)
+        cy.request({
+          url: 'https://conduit-api.bondaracademy.com/api/articles',
+          headers: { 'Authorization': 'Token ' + token },
+          method: 'POST',
+          body: bodyRequest
+        }).then(response => {
+          expect(response.status).to.equal(201)
+        })
+
+        cy.contains('Global Feed').click()                  
+        cy.get('.preview-link').first().click()
+        cy.get('.article-actions').contains('Delete Article').click()
+
+        cy.request({
+          url: 'https://conduit-api.bondaracademy.com/api/articles?limit=10&offset=0',
+          headers: { 'Authorization': 'Token ' + token },
+          method: 'GET'
+        }).its('body').then(body => {
+          console.log(body)
+        })
       })
+  })
+})
 
-      cy.contains('Global Feed').click()
-      cy.get('.article-preview').click()
-      cy.get('.article-actions').contains('Delete Article').click()
-      
-    })
-
-  })  
-
-})  
