@@ -30,26 +30,17 @@ Cypress.Commands.add('logginToApplication', () => {
         "password": "cesar0581998"
       }
     }
-
     cy.request('POST', 'https://conduit-api.bondaracademy.com/api/users/login', userCredentials)
       .its('body').then(body => {
         const token = body.user.token
+        cy.wrap(token).as('token')
 
         cy.visit('/', {
           onBeforeLoad (win) {
-            win.localStorage.setItem('jwt', token)
+            win.localStorage.setItem('jwtToken', token)
           }
         })
       })
 
-/*     cy.request('POST', 'https://conduit-api.bondaracademy.com/api/users/login', userCredentials)
-        .its('body').then(body => {
-            const token = body.user.token
-
-            cy.visit('/', {
-                onBeforeLoad (win) {
-                    win.localStorage.setItem('jwt', token)
-                }
-            })
-        }) */
+     
 })

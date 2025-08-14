@@ -5,17 +5,13 @@ describe('Test with the backend', () => {
     cy.logginToApplication()
   })
 
-  it('first', () => {
-    cy.log('This is the first test')
-  })
-
   it('Verify the request and response', () => {
     cy.intercept('post', '**/api/articles').as('postArticles')
     
     const unique = Date.now()
     
      cy.contains('New Article').click()
-     cy.get('[formcontrolname="title"]').type('This is the title')
+     cy.get('[formcontrolname="title"]').type(`This is a ${unique}`)
      cy.get('[formcontrolname="description"]').type('This is a description')
      cy.get('[formcontrolname="body"]').type('This is a body of the article')
      cy.contains('Publish Article').click()
@@ -85,13 +81,6 @@ describe('Test with the backend', () => {
 
   it('delete a new article in a global feed', () => {
     const date = Date.now()
-    const userCredentials = {
-      "user": {
-        "email": "djtest@hotmail.com",
-        "password": "cesar0581998"
-      }
-    }
-
     const bodyRequest = {
       "article": {
         "tagList": [],
@@ -101,10 +90,7 @@ describe('Test with the backend', () => {
       }
     }
 
-    cy.request('POST', 'https://conduit-api.bondaracademy.com/api/users/login', userCredentials)
-      .its('body').then(body => {
-        const token = body.user.token
-
+    cy.get('@token').then(token => {
         cy.request({
           url: 'https://conduit-api.bondaracademy.com/api/articles',
           headers: { 'Authorization': 'Token ' + token },
@@ -127,5 +113,5 @@ describe('Test with the backend', () => {
         })
       })
   })
-})
+ })
 
