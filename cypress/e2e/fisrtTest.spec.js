@@ -14,11 +14,11 @@ describe('Test with the backend', () => {
     
     const unique = Date.now()
     
-    cy.contains('New Article').click()
-    cy.get('[formControlname="title"]').type(`This is a ${unique} `)
-    cy.get('[formControlname="description"]').type('This is a description')
-    cy.get('[formControlname="body"]').type('This is a body of the article')
-    cy.contains('Publish Article').click()
+     cy.contains('New Article').click()
+     cy.get('[formcontrolname="title"]').type('This is the title')
+     cy.get('[formcontrolname="description"]').type('This is a description')
+     cy.get('[formcontrolname="body"]').type('This is a body of the article')
+     cy.contains('Publish Article').click()
 
     cy.wait('@postArticles').then(xhr => {
       console.log(xhr)
@@ -83,7 +83,7 @@ describe('Test with the backend', () => {
     cy.get('app-article-list button').eq(1).click().should('contain', '6')
   })
 
-  it.only('delete a new article in a global feed', () => {
+  it('delete a new article in a global feed', () => {
     const date = Date.now()
     const userCredentials = {
       "user": {
@@ -123,7 +123,7 @@ describe('Test with the backend', () => {
           headers: { 'Authorization': 'Token ' + token },
           method: 'GET'
         }).its('body').then(body => {
-          console.log(body)
+          expect(body.articles[0].title).not.to.equal(`Request from the API ${date}`)
         })
       })
   })
