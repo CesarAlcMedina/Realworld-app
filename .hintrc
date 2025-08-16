@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "-webkit-text-size-adjust",
+          "background-color: color(#f2f2f2 alpha(60%))",
+          "color: color(#000 tint(46.7%))",
+          "background-color: color(var(--body-bg) alpha(60%))",
+          "border: .25rem solid color(#000 tint(73.5%))",
+          "border-top-color: color(#000 tint(33.5%))",
+          "color: color(color(#428bca shade(6.5%)) shade(15%))",
+          "color: color(#000 tint(33.5%))",
+          "color: color(#000 tint(20%))",
+          "border-color: color(#000 tint(73.5%))"
+        ]
+      }
+    ]
+  }
+}

@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2025-08-15T06:36:53.265Z",
-    "end": "2025-08-15T06:36:54.523Z",
-    "duration": 1258,
+    "start": "2025-08-15T22:26:50.915Z",
+    "end": "2025-08-15T22:26:53.086Z",
+    "duration": 2171,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "1a7a6636-53e9-4ad6-8602-08ece9a5edf9",
+      "uuid": "c5ee1f9e-e007-4ea1-b4a3-1e16fc92cb62",
       "title": "",
       "fullFile": "cypress\\e2e\\secondTest.spec.js",
       "file": "cypress\\e2e\\secondTest.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "792235f9-3ce4-45f6-88e6-85858939e4ab",
+          "uuid": "b9452707-672a-45f9-8bc6-e367f112b645",
           "title": "Test log out",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "verify use can log out successfully",
               "fullTitle": "Test log out verify use can log out successfully",
               "timedOut": null,
-              "duration": 1229,
+              "duration": 2108,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.contains('Settings').click();\ncy.contains('Or click here to logout').click();\ncy.get('.navbar-nav').should('contain', 'Sign up');",
               "err": {},
-              "uuid": "8c1e5e72-4244-4499-8657-c4dd4ca26d45",
-              "parentUUID": "792235f9-3ce4-45f6-88e6-85858939e4ab",
+              "uuid": "2ebd123d-3ad5-40f6-821d-4194414513ba",
+              "parentUUID": "b9452707-672a-45f9-8bc6-e367f112b645",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8c1e5e72-4244-4499-8657-c4dd4ca26d45"
+            "2ebd123d-3ad5-40f6-821d-4194414513ba"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1229,
+          "duration": 2108,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -84,7 +84,7 @@
       "options": {
         "quiet": false,
         "reportFilename": "mochawesome",
-        "saveHtml": false,
+        "saveHtml": true,
         "saveJson": true,
         "consoleReporter": "spec",
         "useInlineDiffs": false,
@@ -95,10 +95,13 @@
     "marge": {
       "options": {
         "id": "default",
-        "reportDir": "cypress/results/mochaawesome",
-        "overwrite": false,
-        "html": false,
-        "json": true
+        "charts": true,
+        "reportPageTitle": "Cypress Test Results",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "reportDir": "cypress/results/mochawesome",
+        "reportFilename": "mochawesome"
       },
       "version": "6.2.0"
     }

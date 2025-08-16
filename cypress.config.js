@@ -17,5 +17,21 @@ module.exports = defineConfig({
 
     baseUrl: "https://conduit.bondaracademy.com/",
     specPattern: "cypress/e2e/**/*.spec.{js,jsx,ts,tsx}",
+    reporter: 'cypress-multi-reporters',
+    reporterOptions: {
+      reporterEnabled: 'mocha-junit-reporter, mochawesome',
+      mochaJunitReporterReporterOptions: {
+        mochaFile: 'cypress/results/junit/results-[hash].xml'
+      },
+      mochawesomeReporterOptions: {
+        charts: true,
+        reportPageTitle: 'Cypress Test Results',
+        embeddedScreenshots: true,
+        inlineAssets: true,
+        saveAllAttempts: false,
+        reportDir: 'cypress/results/mochawesome',
+        reportFilename: 'mochawesome'
+      }
+    }
   },
 });

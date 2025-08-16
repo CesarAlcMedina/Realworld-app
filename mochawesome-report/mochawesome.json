@@ -5,20 +5,20 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
+    "start": "2025-08-15T20:25:44.701Z",
+    "end": "2025-08-15T20:25:47.735Z",
+    "duration": 3034,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
-    "hasSkipped": false,
-    "start": "2025-08-15T22:26:50.915Z",
-    "end": "2025-08-15T22:26:53.086Z",
-    "duration": 2171
+    "hasSkipped": false
   },
   "results": [
     {
-      "uuid": "c5ee1f9e-e007-4ea1-b4a3-1e16fc92cb62",
+      "uuid": "4d24907e-b327-481a-ab33-fe10c2124021",
       "title": "",
       "fullFile": "cypress\\e2e\\secondTest.spec.js",
       "file": "cypress\\e2e\\secondTest.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b9452707-672a-45f9-8bc6-e367f112b645",
+          "uuid": "ba7a2685-054c-43bf-8e47-8264202d3793",
           "title": "Test log out",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "verify use can log out successfully",
               "fullTitle": "Test log out verify use can log out successfully",
               "timedOut": null,
-              "duration": 2108,
+              "duration": 2980,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.contains('Settings').click();\ncy.contains('Or click here to logout').click();\ncy.get('.navbar-nav').should('contain', 'Sign up');",
               "err": {},
-              "uuid": "2ebd123d-3ad5-40f6-821d-4194414513ba",
-              "parentUUID": "b9452707-672a-45f9-8bc6-e367f112b645",
+              "uuid": "3d75a6f4-0487-4eb8-b1e0-85aaabad48fb",
+              "parentUUID": "ba7a2685-054c-43bf-8e47-8264202d3793",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "2ebd123d-3ad5-40f6-821d-4194414513ba"
+            "3d75a6f4-0487-4eb8-b1e0-85aaabad48fb"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2108,
+          "duration": 2980,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -99,9 +99,7 @@
         "reportPageTitle": "Cypress Test Results",
         "embeddedScreenshots": true,
         "inlineAssets": true,
-        "saveAllAttempts": false,
-        "reportDir": "cypress/results/mochawesome",
-        "reportFilename": "mochawesome"
+        "saveAllAttempts": false
       },
       "version": "6.2.0"
     }
